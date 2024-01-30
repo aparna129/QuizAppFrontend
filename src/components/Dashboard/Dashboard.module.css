@@ -1,0 +1,47 @@
+.section1 {
+  height: 40vh;
+  width: 76vw;
+  margin-bottom: 3vh;
+  margin-right: 1vw;
+  display: flex;
+  font-size: 2em;
+  font-weight: 600;
+}
+.boxes {
+  height: 12vh;
+  width: 17vw;
+  margin-top: 15vh;
+  margin-left: 4vw;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 1vh;
+  padding-bottom: 5vh;
+}
+.font {
+  font-size: 1.2em;
+  margin-right: 1.5vw;
+}
+.section2 {
+  margin-top: 7vh;
+  margin-left: 5vw;
+  height: 60vh;
+  width: 80vw;
+  margin-bottom: 3vh;
+}
+.trendingQuiz {
+  color: #474444;
+  font-size: 2em;
+  font-weight: 600;
+}
+.trendingQuizzesSection {
+  height: 32vh;
+  width: 75vw;
+  margin-left: -1.8vw;
+  margin-right: 1.2vw;
+  margin-top: 4vh;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}

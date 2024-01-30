@@ -1,0 +1,73 @@
+.section1 {
+  margin-top: 3vh;
+  height: 12vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.quizName {
+  color: #5076ff;
+  font-size: 2em;
+  font-weight: 600;
+  padding-top: 4.5vh;
+  padding-left: 5.2vw;
+  padding-bottom: 1vh;
+}
+.createdAndImpression {
+  color: #ff5d01;
+  font-weight: 600;
+  padding-top: 4vh;
+  padding-left: 25vw;
+  padding-right: 4vw;
+  padding-bottom: 1vh;
+}
+.section2 {
+  height: 80vh;
+  overflow: auto;
+  margin-top: 5vh;
+}
+.questions {
+  width: 60vw;
+  margin-left: 6.5vw;
+  margin-right: 3vw;
+  margin-bottom: 6vh;
+}
+.lineImg {
+  width: 60vw;
+  margin-left: 1vw;
+}
+
+.questionSection1 {
+  height: 22vh;
+  width: 100%;
+  margin-top: 2vh;
+}
+.questionNo {
+  font-weight: 600;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+.questionSection2 {
+  display: flex;
+  gap: 4vw;
+  margin-left: 1vw;
+  margin-top: 4vh;
+}
+.textInBox {
+  color: #474444;
+  font-weight: 600;
+  height: 10vh;
+  width: 22vw;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.8em;
+  padding-top: 1.3vh;
+}
+.numbers {
+  font-size: 1.8em;
+  margin-bottom: 0.3vh;
+}
+.peopleText {
+  text-align: center;
+}

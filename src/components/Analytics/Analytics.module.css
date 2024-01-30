@@ -1,0 +1,89 @@
+.quizAnalysisTitle {
+  color: #5076ff;
+  font-weight: 600;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.tableContainer {
+  height: 63vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tableHeader {
+  width: 72vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  color: #ffffff;
+  background-color: #5076ff;
+  margin-top: 8vh;
+  border-radius: 10px;
+  font-size: 1.1em;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  font-weight: 600;
+}
+
+.sNo {
+  margin-left: 1.5vw;
+  width: 5vw;
+  display: inline-block;
+  text-align: center;
+}
+.quizNameAndImpression {
+  width: 10vw;
+  display: inline-block;
+  text-align: center;
+}
+.createdAt {
+  width: 10vw;
+  display: inline-block;
+  text-align: center;
+}
+.quizMapping {
+  padding-bottom: 0.5vh;
+  width: 72vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  border-radius: 10px;
+}
+.tableData {
+  padding-top: 1vh;
+  padding-bottom: 1.2vh;
+  font-weight: 600;
+}
+
+.quizIcons {
+  width: 7vw;
+  display: inline-block;
+  text-align: center;
+  margin-left: 1vw;
+}
+.deleteIconContainer {
+  margin-left: 0.5vw;
+}
+.shareIconContainer {
+  margin-left: 0.2vw;
+}
+.quizIcons img {
+  cursor: pointer;
+}
+
+.questionWiseAnalysis {
+  width: 14vw;
+  text-align: center;
+  display: inline-block;
+  margin-left: 1vw;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.moreQuizText {
+  text-align: right;
+  color: #474444;
+  margin-right: 3vw;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  font-weight: 600;
+}

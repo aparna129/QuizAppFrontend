@@ -1,0 +1,85 @@
+.addQuestionsPopup {
+  padding-bottom: 5vh;
+  padding-top: 4vh;
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  margin-left: 3vw;
+  background-color: white;
+  border-radius: 10px;
+  width: 50vw;
+}
+.section1 {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  margin-left: 2vw;
+}
+.relativePosition {
+  position: relative;
+}
+.questions {
+  margin-top: 1vh;
+  font-size: 1.3em;
+  color: #9f9f9f;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 0px #00000026;
+  width: 8vh;
+  height: 8vh;
+  text-align: center;
+  line-height: 8vh;
+  font-weight: 600;
+  margin-right: 1.5vw;
+  cursor: pointer;
+}
+.crossIcon {
+  position: absolute;
+  margin-left: 0.5vw;
+  margin-top: 0.5vh;
+  cursor: pointer;
+}
+.section1RightSide {
+  text-align: right;
+  flex: 1;
+}
+.section1Text {
+  color: #9f9f9f;
+  font-size: 1.2em;
+  line-height: 9vh;
+  margin-right: 3vw;
+  text-align: right;
+}
+.btnSection {
+  height: 6.5vh;
+  width: 46vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+.cancelBtn {
+  color: #474444;
+  box-shadow: 0px 0px 15px 0px #00000040;
+  background: none;
+  font-weight: 600;
+  font-size: 1.2em;
+  width: 17vw;
+  border-radius: 10px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.createOrUpdateBtn {
+  color: #ffffff;
+  background-color: #60b84b;
+  font-weight: 600;
+  font-size: 1.2em;
+  width: 17vw;
+  border-radius: 10px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,98 @@
+@media only screen and (min-width: 769px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #041325;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container2 {
+    height: 82vh;
+    width: 90vw;
+    background-color: #ffffff;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 9vh;
+    margin-bottom: 9vh;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px 0px #00000026;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .qnaText {
+    color: #474444;
+    font-size: 2.2em;
+    font-weight: 600;
+  }
+  .trophyimage {
+    height: 50vh;
+    width: 25vw;
+  }
+  .scoreText {
+    margin-top: 1vh;
+    color: #474444;
+    font-size: 2.2em;
+    font-weight: 600;
+  }
+  .score {
+    color: #60b84b;
+  }
+  .pollText {
+    color: #474444;
+    font-size: 4em;
+    font-weight: 600;
+    margin: 20vh 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    background: transparent;
+    height: 0vh;
+    width: 0vw;
+  }
+  .container2 {
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .qnaText {
+    color: #474444;
+    font-size: 2.3em;
+    font-weight: 600;
+    text-align: center;
+  }
+  .trophyimage {
+    height: 50vh;
+    width: 84vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+  .scoreText {
+    margin-top: 3vh;
+    color: #474444;
+    font-size: 2.3em;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  .score {
+    color: #60b84b;
+  }
+  .pollText {
+    color: #474444;
+    font-size: 3em;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}

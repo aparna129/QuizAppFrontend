@@ -1,0 +1,70 @@
+.optionSection {
+  display: flex;
+  align-items: center;
+}
+.text1 {
+  width: 15vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1em;
+  padding-left: 1vw;
+  margin-left: 1vw;
+  margin-top: 3vh;
+}
+.image1 {
+  width: 15vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1em;
+  padding-left: 1vw;
+  margin-left: 1vw;
+  margin-top: 3vh;
+}
+.text2 {
+  width: 10vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1em;
+  padding-left: 1vw;
+  margin-left: 1vw;
+  margin-top: 3vh;
+}
+.image2{
+  width: 15vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1em;
+  padding-left: 1vw;
+  margin-left: 1vw;
+  margin-top: 3vh;
+}
+.deleteicon {
+  margin-left: 2vw;
+  margin-top: 2vh;
+  cursor: pointer;
+}
+.addOptionBtn {
+  color: #9f9f9f;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  width: 16vw;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border-radius: 10px;
+  border: none;
+  background: none;
+  font-size: 1.2em;
+  margin-left: 2vw;
+  margin-top: 5vh;
+}

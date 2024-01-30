@@ -1,0 +1,19 @@
+.section1 {
+  width: 100%;
+  text-align: center;
+  margin-top: 2vh;
+}
+.timer {
+  color: #9f9f9f;
+  font-size: 1.2em;
+}
+.timerBtns {
+  margin-top: 3vh;
+  border: none;
+  width: 6vw;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 0px #00000026;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  font-size: 0.9em;
+}

@@ -1,0 +1,149 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f2f2f2;
+  display: flex;
+}
+.box {
+  background-color: #ffffff;
+  height: 78vh;
+  width: 86vw;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  margin-top: 10vh;
+  margin-bottom: 12vh;
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px 0px #00000026;
+}
+.header {
+  height: 10%;
+  width: 100%;
+  margin-top: 6vh;
+}
+.headerText {
+  font-size: 4em;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-align: center;
+  color: #474444;
+  font-family: "Jomhuria", serif;
+}
+.section2 {
+  height: 11%;
+  width: 100%;
+  display: flex;
+  margin-top: 2.7vh;
+}
+.signupBtn {
+  height: 65%;
+  width: 15%;
+  background: none;
+  border: none;
+  margin-top: 2vh;
+  margin-left: 25vw;
+  color: #474444;
+  font-weight: bold;
+  font-size: 1.3em;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.loginBtn {
+  height: 65%;
+  width: 15%;
+  background: none;
+  border: none;
+  margin-top: 2vh;
+  margin-left: 8vw;
+  color: #474444;
+  font-weight: bold;
+  font-size: 1.3em;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.container2 {
+  height: 50%;
+  width: 100%;
+  margin-top: 4vh;
+}
+
+.signupContainer {
+  height: 100%;
+  width: 100%;
+}
+.loginContainer {
+  height: 100%;
+  width: 100%;
+  margin-top: 10vh;
+}
+.signupLoginSection {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.fields {
+  height: 100%;
+  width: 40%;
+  text-align: right;
+  padding-right: 5vw;
+  padding-left: 1vw;
+  font-weight: 600;
+  color: #474444;
+  font-size: 1.3em;
+  padding-bottom: 3vw;
+}
+.name {
+  height: 22%;
+  margin-top: 3vh;
+}
+.fieldHeight {
+  height: 22%;
+}
+.formSection {
+  height: 100%;
+  width: 60%;
+}
+.signupForm {
+  margin-top: -1vh;
+  padding-bottom: 3vw;
+}
+.loginForm {
+  margin-top: -4vh;
+  padding-bottom: 3vw;
+}
+.signupBtnSection {
+  height: 15%;
+  width: 100%;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+}
+.loginBtnSection {
+  height: 15%;
+  width: 100%;
+  margin-bottom: 2vh;
+  margin-top: -17vh;
+}
+.signupLoginBtns {
+  margin-left: 35vw;
+  margin-right: 35vw;
+  background-color: #a9bcff;
+  height: 90%;
+  width: 22%;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #474444;
+}
+.signupLoginInput {
+  height: 5.5vh;
+  width: 25vw;
+  margin-top: 3vh;
+  background: #f4f4f4;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 3vh;
+  padding-left: 2vh;
+  border: none;
+}
+.signupLoginInput::placeholder {
+  color: #d60000;
+}

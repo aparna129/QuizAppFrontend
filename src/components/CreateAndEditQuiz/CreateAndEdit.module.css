@@ -1,0 +1,97 @@
+.popupBox {
+  padding-bottom: 7vh;
+  padding-top: 6vh;
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  margin-left: 3vw;
+  background-color: white;
+  border-radius: 10px;
+  width: 40vw;
+}
+.input {
+  margin-top: 3vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  height: 5vh;
+  width: 35vw;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 25px 0px #00000026;
+}
+.section2 {
+  display: flex;
+  margin-left: 2.5vw;
+  margin-top: 5vh;
+  font-weight: 600;
+  gap: 5vw;
+  margin-right: 3vw;
+}
+.quizType {
+  color: #9f9f9f;
+  margin-top: 1vh;
+}
+.qnaTypeBtn {
+  color: #9f9f9f;
+  font-size: 1.1em;
+  margin-top: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border: none;
+  border-radius: 10px;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pollTypeBtn {
+  color: #9f9f9f;
+  font-size: 1.1em;
+  margin-top: 1vh;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  border: none;
+  border-radius: 10px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  font-weight: 600;
+  cursor: pointer;
+}
+.section3 {
+  display: flex;
+  margin-left: 2.5vw;
+  margin-top: 8vh;
+  gap: 4.3vw;
+}
+.cancelBtn {
+  background: none;
+  box-shadow: 0px 0px 15px 0px #00000040;
+  border: none;
+  color: #474444;
+  border-radius: 10px;
+  padding-top: 1.3vh;
+  padding-bottom: 1.3vh;
+  font-weight: bold;
+  width: 15vw;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+.continueBtn {
+  background-color: #60b84b;
+  border: none;
+  color: #ffffff;
+  border-radius: 10px;
+  padding-top: 1.3vh;
+  padding-bottom: 1.3vh;
+  font-weight: bold;
+  width: 15vw;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-right: 3vw;
+}

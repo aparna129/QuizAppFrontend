@@ -1,0 +1,49 @@
+.section1 {
+  height: 8vh;
+  width: 50vw;
+}
+.questionInput {
+  width: 46.5vw;
+  margin-left: 2vw;
+  margin-top: 3vh;
+  margin-right: 2vw;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 1vw;
+  border: none;
+  font-size: 1.2em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+}
+.section2 {
+  margin-top: 4.5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6vh;
+  width: 46vw;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  color: #9f9f9f;
+  font-size: 1.2em;
+}
+.margin {
+  margin-right: 1vw;
+}
+.section3 {
+  height: 38vh;
+  width: 48vw;
+  display: flex;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  justify-content: space-between;
+  margin-top: 3vh;
+  overflow: auto;
+  margin-bottom: 4vh;
+}
+.optionInputSection {
+  width: 35vw;
+}
+.timerWidth {
+  width: 10vw;
+}
