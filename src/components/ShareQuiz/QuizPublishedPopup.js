@@ -12,10 +12,10 @@ function QuizPublishedPopup({
     setIsQuizPublishedPopupOpen(false);
   };
 
-  const message = `Your link is here : http://localhost:3000/quiz/${newlyCreatedQuizId}`;
+  const message = `Your link is here :https://quizzie-universe-app.netlify.app/${newlyCreatedQuizId}`;
 
   const handleShareBtn = () => {
-    const link = `http://localhost:3000/quiz/${newlyCreatedQuizId}`;
+    const link = `https://quizzie-universe-app.netlify.app/${newlyCreatedQuizId}`;
     navigator.clipboard.writeText(link).then(() => {
       toast.success("Link copied to Clipboard");
     });
