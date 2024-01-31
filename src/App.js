@@ -10,7 +10,7 @@ import PollQuestionAnalysis from "./components/QuestionAnalysis/PollQuestionAnal
 import LiveQuizInterface from "./components/LiveQuizInterface/LiveQuizInterface";
 
 function App() {
-  const baseUrl = "https://quizappbackend-awc2.onrender.com/";
+  const baseUrl = "https://quizappbackend-cxbh.onrender.com/";
 
   localStorage.setItem("baseUrl", baseUrl);
 

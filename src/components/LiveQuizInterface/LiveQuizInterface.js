@@ -31,7 +31,7 @@ function LiveQuizInterface() {
       .catch((error) => {
         console.log(error);
       });
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [quizId]);
 
   //Impressions Updation
@@ -214,7 +214,7 @@ function LiveQuizInterface() {
   if (!quiz) {
     return (
       <div style={{ textAlign: "center" }}>
-        <h1>Quiz doesnt exist</h1>
+        <h1>Please Wait to load the Quiz !</h1>
       </div>
     );
   }
