@@ -33,6 +33,8 @@ function LiveQuizInterface() {
       });
   }, [quizId]);
 
+  //Impressions Updation
+  
   useEffect(() => {
     setImpressions((prevImpressions) => prevImpressions + 1);
     axios
