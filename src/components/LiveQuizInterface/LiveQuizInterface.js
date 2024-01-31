@@ -18,9 +18,11 @@ function LiveQuizInterface() {
 
   const [impressions, setImpressions] = useState(0);
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/getQuizById/${quizId}`)
+      .get(`${baseUrl}getQuizById/${quizId}`)
       .then((response) => {
         const { quiz } = response.data;
         setQuiz(quiz);
@@ -34,7 +36,7 @@ function LiveQuizInterface() {
   useEffect(() => {
     setImpressions((prevImpressions) => prevImpressions + 1);
     axios
-      .patch(`http://localhost:4000/impressionsUpdation/${quizId}`, {
+      .patch(`${baseUrl}impressionsUpdation/${quizId}`, {
         impressions: impressions + 1,
       })
       .then((response) => {
@@ -96,7 +98,7 @@ function LiveQuizInterface() {
 
     axios
       .patch(
-        `http://localhost:4000/questionsUpdation/${quiz._id}/${quiz.questionsArray[currentQuestionIndex]._id}`,
+        `${baseUrl}questionsUpdation/${quiz._id}/${quiz.questionsArray[currentQuestionIndex]._id}`,
         {
           peopleAnsweredCorrectly,
           peopleAnsweredIncorrectly,

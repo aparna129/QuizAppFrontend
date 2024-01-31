@@ -26,7 +26,7 @@ function AnalyticsPage() {
   const [isEditQuizPopupOpen, setIsEditQuizPopupOpen] = useState(false);
 
   const handleShareBtn = (quizId) => {
-    const link = `http://localhost:3000/quiz/${quizId}`;
+    const link = `https://quizzie-universe-app.netlify.app/quiz/${quizId}`;
 
     navigator.clipboard.writeText(link).then(() => {
       toast.success("Link copied to Clipboard");
