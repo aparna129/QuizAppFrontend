@@ -133,6 +133,7 @@
   font-weight: 600;
   font-size: 1.3em;
   color: #474444;
+  cursor: pointer;
 }
 .signupLoginInput {
   height: 5.5vh;

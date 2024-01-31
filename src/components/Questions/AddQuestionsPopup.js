@@ -87,6 +87,11 @@ function AddQuestionsPopup({
       return;
     }
 
+    if (questions.length === 5) {
+      setError("Maximum only 5 questions");
+      return;
+    }
+
     if (questions.length < 5) {
       const newQuestionNumber = questions.length + 1;
 
@@ -126,13 +131,16 @@ function AddQuestionsPopup({
   const handleDeleteQuestion = (questionNumber) => {
     const remainingQuestions = questions.filter((q) => q !== questionNumber);
 
+    setQuestions(remainingQuestions);
     const renumberedQuestions = remainingQuestions.map((_, index) => index + 1);
+
+    setSelectedQuestion(
+      renumberedQuestions.length > 0 ? renumberedQuestions[0] : 1
+    );
 
     const updatedQuestionsArray = questionsArray.filter(
       (q) => q && q.questionNo !== questionNumber
     );
-
-    setQuestions(renumberedQuestions);
     setQuestionsArray(updatedQuestionsArray);
 
     setNewQuiz((prevNewQuiz) => ({
@@ -144,14 +152,6 @@ function AddQuestionsPopup({
       ...prevUpdatedQuiz,
       questionsArray: updatedQuestionsArray,
     }));
-
-    if (selectedQuestion === questionNumber) {
-      setSelectedQuestion(
-        renumberedQuestions.length > 0
-          ? renumberedQuestions[renumberedQuestions.length - 1]
-          : null
-      );
-    }
   };
 
   const handleCancelBtn = () => {
@@ -175,9 +175,11 @@ function AddQuestionsPopup({
 
   const userId = localStorage.getItem("userId");
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   const handleCreateQuizBtn = () => {
     axios
-      .post(`https://quizzieappbackend.onrender.com/${userId}`, newQuiz, {
+      .post(`${baseUrl}quizCreation/${userId}`, newQuiz, {
         headers,
       })
       .then((response) => {
@@ -240,13 +242,9 @@ function AddQuestionsPopup({
 
   const handleUpdateQuizBtn = () => {
     axios
-      .patch(
-        `https://quizzieappbackend.onrender.com/${userId}/${quizId}`,
-        updatedQuiz,
-        {
-          headers,
-        }
-      )
+      .patch(`${baseUrl}quizUpdation/${userId}/${quizId}`, updatedQuiz, {
+        headers,
+      })
       .then((response) => {
         toast.success(response.data.message);
         setEditableQuiz(null);
@@ -322,15 +320,15 @@ function AddQuestionsPopup({
             onQuestionChange={(newQuestion) =>
               handleQuestionChange(questionNumber, newQuestion)
             }
-            quizType={quizType}
             onTimerChange={handleTimerChange}
+            quizType={quizType}
             editableQuiz={editableQuiz}
           />
         </div>
       ))}
 
       {error && (
-        <div>
+        <div className={styles.error}>
           <p className={styles1.error}>{error}</p>
         </div>
       )}

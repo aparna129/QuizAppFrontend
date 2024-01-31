@@ -4,8 +4,8 @@
 }
 .text1 {
   width: 15vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
   border: none;
@@ -16,8 +16,8 @@
 }
 .image1 {
   width: 15vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
   border: none;
@@ -28,8 +28,8 @@
 }
 .text2 {
   width: 10vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
   border: none;
@@ -38,10 +38,10 @@
   margin-left: 1vw;
   margin-top: 3vh;
 }
-.image2{
+.image2 {
   width: 15vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
   border: none;
@@ -57,8 +57,8 @@
 }
 .addOptionBtn {
   color: #9f9f9f;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
   width: 16vw;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
@@ -67,4 +67,6 @@
   font-size: 1.2em;
   margin-left: 2vw;
   margin-top: 5vh;
+  cursor: pointer;
+  margin-bottom: 3vh;
 }

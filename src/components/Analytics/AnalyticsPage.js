@@ -26,7 +26,7 @@ function AnalyticsPage() {
   const [isEditQuizPopupOpen, setIsEditQuizPopupOpen] = useState(false);
 
   const handleShareBtn = (quizId) => {
-    const link = `https://quizzieappbackend.onrender.com/quiz/${quizId}`;
+    const link = `http://localhost:3000/quiz/${quizId}`;
 
     navigator.clipboard.writeText(link).then(() => {
       toast.success("Link copied to Clipboard");
@@ -56,9 +56,11 @@ function AnalyticsPage() {
 
   const [error, setError] = useState(false);
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/getAllQuizzes/${userId}`, { headers })
+      .get(`${baseUrl}getAllQuizzes/${userId}`, { headers })
       .then((response) => {
         setError("");
         const { dateSortedQuizzes, totalQuizzes } = response.data;

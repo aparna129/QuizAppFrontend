@@ -10,6 +10,10 @@ import PollQuestionAnalysis from "./components/QuestionAnalysis/PollQuestionAnal
 import LiveQuizInterface from "./components/LiveQuizInterface/LiveQuizInterface";
 
 function App() {
+  const baseUrl = "https://quizappbackend-0vgf.onrender.com/";
+
+  localStorage.setItem("baseUrl", baseUrl);
+
   return (
     <div>
       <ToastContainer position="top-right" />

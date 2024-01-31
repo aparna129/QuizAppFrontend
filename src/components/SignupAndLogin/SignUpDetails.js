@@ -23,10 +23,12 @@ function SignUpDetails({ onSignUpSuccess }) {
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
   const [error, setError] = useState("");
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   const handleSignUp = () => {
     setIsSignUpClicked(true);
     axios
-      .post("https://quizzieappbackend.onrender.com/signup", signUpData)
+      .post(`${baseUrl}signup`, signUpData)
       .then((response) => {
         const { message } = response.data;
         setError("");

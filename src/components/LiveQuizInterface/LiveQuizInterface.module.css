@@ -94,38 +94,20 @@
     height: 15vh;
     border-radius: 10px;
   }
-  .thirdTypeQna {
+  .thirdType {
     display: flex;
   }
-  .thirdTypePoll {
-    display: flex;
-  }
-  .thirdTypeTextQna {
+  .thirdTypeText {
     width: 9vw;
     line-height: 15vh;
   }
-  .thirdTypeTextPoll {
-    width: 9vw;
-    line-height: 15vh;
-  }
-  .thirdTypeImageQna {
-    height: 12vh;
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-    border-radius: 10px;
+  .thirdTypeImage {
     width: 10vw;
+    height: 13vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
     margin-right: 1vw;
-  }
-  .thirdTypeImagePoll {
-    height: 12vh;
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-    border-radius: 10px;
-    width: 10vw;
-    margin-right: 1vw;
-  }
-  .textOverlay {
-    display: none;
   }
   .section4 {
     margin-top: 2vh;
@@ -136,8 +118,8 @@
     background-color: #60b84b;
     border-radius: 10px;
     border: none;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
     width: 20vw;
     font-size: 1.3em;
     font-weight: 600;
@@ -212,7 +194,7 @@
   }
   .optionTextAndImage {
     background-color: #f0f0f0;
-    height: 18vh;
+    height: 16vh;
     width: 86vw;
     margin-top: 5vh;
     font-weight: 600;
@@ -227,48 +209,23 @@
     height: 10vh;
     border-radius: 10px;
   }
-  .thirdTypeQna {
+  .thirdType {
     display: flex;
   }
-  .thirdTypeTextQna {
-    width: 40vw;
-    line-height: 10vh;
+  .thirdTypeText {
+    width: 35vw;
+    line-height: 16vh;
     text-align: center;
   }
-  .thirdTypeImageQna {
-    height: 8vh;
-    width: 52vw;
+  .thirdTypeImage {
+    height: 14vh;
+    width: 43vw;
     margin-left: 5vw;
     margin-right: 3vw;
     margin-top: 1vh;
     margin-bottom: 1vh;
     border-radius: 10px;
   }
-  .thirdTypeTextPoll {
-    position: relative;
-    display: none;
-  }
-
-  .thirdTypeImagePoll {
-    position: relative;
-    height: 16vh;
-    width: 82vw;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    border-radius: 10px;
-  }
-
-  .textOverlay {
-    position: relative;
-    margin-top: -15vh;
-    margin-left: 10vw; 
-    color: #ffffff;
-    font-size: 1.7em;
-    font-weight: 600;
-  }
-
   .section4 {
     margin-top: 2vh;
     text-align: center;
@@ -278,8 +235,8 @@
     background-color: #60b84b;
     border-radius: 10px;
     border: none;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     width: 80vw;
     font-size: 1.3em;
     font-weight: 600;

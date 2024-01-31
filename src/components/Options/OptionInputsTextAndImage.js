@@ -21,7 +21,11 @@ function OptionInputsTextAndImage({
         })
       );
       setOptions(updatedOptions);
+      setSelectedOptionId(questionsArray.correctAnswer);
+    } else {
+      setSelectedOptionId(null);
     }
+
     // eslint-disable-next-line
   }, [editableQuiz]);
 
@@ -114,11 +118,10 @@ function OptionInputsTextAndImage({
         )
       );
       setSelectedOptionId(id);
-      const questionIndex = id - 1;
 
       onQuestionChange({
         ...questionsArray,
-        correctAnswer: questionIndex,
+        correctAnswer: id,
       });
     }
   };
@@ -130,17 +133,39 @@ function OptionInputsTextAndImage({
           {quizType === "QnA" && editableQuiz === null && (
             <input
               type="radio"
-              name="OptionsGroup"
+              name={questionsArray.question}
               id={`option${option.id}`}
               onChange={() => handleRadioChange(option.id)}
             />
           )}
+
+          {editableQuiz && editableQuiz.type === "QnA" && (
+            <input
+              type="radio"
+              name={questionsArray.question}
+              id={`option${option.id}`}
+              onChange={() => handleRadioChange(option.id)}
+              checked={Number(option.id) === Number(selectedOptionId)}
+            />
+          )}
+
           <label htmlFor={`option${option.id}`}>
             <input
               style={{
                 backgroundColor:
-                  option.id === selectedOptionId ? "#60B84B" : "white",
-                color: option.id === selectedOptionId ? "white" : "black",
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "#60B84B"
+                    : "white",
+                color:
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "white"
+                    : "black",
               }}
               className={styles.text2}
               type="text"
@@ -153,8 +178,19 @@ function OptionInputsTextAndImage({
             <input
               style={{
                 backgroundColor:
-                  option.id === selectedOptionId ? "#60B84B" : "white",
-                color: option.id === selectedOptionId ? "white" : "black",
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "#60B84B"
+                    : "white",
+                color:
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "white"
+                    : "black",
               }}
               className={styles.image2}
               type="text"

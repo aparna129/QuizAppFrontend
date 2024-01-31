@@ -24,9 +24,11 @@ function PollQuestionAnalysis() {
 
   const [newlyCreatedQuizId, setNewlyCreatedQuizId] = useState("");
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   useEffect(() => {
     axios
-      .get(`https://quizzieappbackend.onrender.com/${quizId}`)
+      .get(`${baseUrl}getQuizById/${quizId}`)
       .then((response) => {
         const { quiz } = response.data;
         setQuiz(quiz);
@@ -34,6 +36,7 @@ function PollQuestionAnalysis() {
       .catch((error) => {
         console.log(error);
       });
+    // eslint-disable-next-line
   }, [quizId]);
 
   const [quizName, setQuizName] = useState("");

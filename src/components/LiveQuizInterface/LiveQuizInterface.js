@@ -58,7 +58,7 @@ function LiveQuizInterface() {
       const currentQuestion = quiz.questionsArray[currentQuestionIndex];
 
       if (selectedOptionIndex !== null) {
-        if (currentQuestion.correctAnswer === selectedOptionIndex) {
+        if (currentQuestion.correctAnswer === selectedOptionIndex + 1) {
           if (!timerActive) {
             setCorrectAnswersCount((prevCount) => prevCount + 1);
             peopleAnsweredCorrectly = 1;
@@ -76,7 +76,7 @@ function LiveQuizInterface() {
     } else {
       if (selectedOptionIndex !== null) {
         const currentQuestion = quiz.questionsArray[currentQuestionIndex];
-        if (currentQuestion.correctAnswer === selectedOptionIndex) {
+        if (currentQuestion.correctAnswer === selectedOptionIndex + 1) {
           if (!timerActive) {
             setCorrectAnswersCount((prevCount) => prevCount + 1);
             peopleAnsweredCorrectly = 1;
@@ -138,9 +138,11 @@ function LiveQuizInterface() {
     }
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
 
+    const baseUrl = localStorage.getItem("baseUrl");
+
     axios
       .patch(
-        `https://quizzieappbackend.onrender.com/${quiz._id}/${quiz.questionsArray[currentQuestionIndex]._id}`,
+        `${baseUrl}questionsUpdation/${quiz._id}/${quiz.questionsArray[currentQuestionIndex]._id}`,
         {
           peopleAnsweredOption1,
           peopleAnsweredOption2,
@@ -203,6 +205,14 @@ function LiveQuizInterface() {
   const handleOptionSelect = (index) => {
     setSelectedOptionIndex(index);
   };
+
+  if (!quiz) {
+    return (
+      <div style={{ textAlign: "center" }}>
+        <h1>Quiz doesnt exist</h1>
+      </div>
+    );
+  }
 
   if (quizCompleted) {
     return (
@@ -277,32 +287,13 @@ function LiveQuizInterface() {
 
                     {quiz.questionsArray[currentQuestionIndex].optionType ===
                       "TextAndImageUrl" && (
-                      <div
-                        className={
-                          quiz.type === "QnA"
-                            ? styles.thirdTypeQna
-                            : styles.thirdTypePoll
-                        }
-                      >
-                        <p
-                          className={
-                            quiz.type === "QnA"
-                              ? styles.thirdTypeTextQna
-                              : styles.thirdTypeTextPoll
-                          }
-                        >
-                          {option.value}
-                        </p>
+                      <div className={styles.thirdType}>
+                        <p className={styles.thirdTypeText}>{option.value}</p>
                         <img
-                          className={
-                            quiz.type === "QnA"
-                              ? styles.thirdTypeImageQna
-                              : styles.thirdTypeImagePoll
-                          }
+                          className={styles.thirdTypeImage}
                           src={option.imageUrl}
                           alt="optionImage"
                         />
-                        <div className={styles.textOverlay}>{option.value}</div>
                       </div>
                     )}
                   </div>

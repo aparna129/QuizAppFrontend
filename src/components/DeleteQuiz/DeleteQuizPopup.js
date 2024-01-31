@@ -16,9 +16,11 @@ function DeleteQuizPopup({ quizId, onClose }) {
 
   const userId = localStorage.getItem("userId");
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   const handleDeleteQuiz = () => {
     axios
-      .delete(`https://quizzieappbackend.onrender.com/${userId}/${quizId}`, {
+      .delete(`${baseUrl}quizDeletion/${userId}/${quizId}`, {
         headers,
       })
       .then((response) => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Timer from "../Timer/Timer";
 import OptionInputsText from "../Options/OptionInputsText";
 import OptionInputsImage from "../Options/OptionInputsImage";
 import OptionInputsTextAndImage from "../Options/OptionInputsTextAndImage";
 import styles from "./EachQuestion.module.css";
+import Timer from "../Timer/Timer";
 
 function EachQuestion({
   questionNumber,
@@ -135,14 +135,13 @@ function EachQuestion({
             checked={selectedOptionType === "TextAndImageUrl"}
           />
           <label htmlFor={`TextAndImageUrl-${questionNumber}`}>
-            Text & Image URL
+             Text & Image URL
           </label>
         </div>
       </div>
 
       <div className={styles.section3}>
         <div className={styles.optionInputSection}>{renderOptionInputs()}</div>
-
         {(quizType === "QnA" ||
           (editableQuiz && editableQuiz.type === "QnA")) && (
           <div className={styles.timerWidth}>

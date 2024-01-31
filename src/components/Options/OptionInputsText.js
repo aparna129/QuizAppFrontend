@@ -9,6 +9,7 @@ function OptionInputsText({
   editableQuiz,
 }) {
   const [options, setOptions] = useState([]);
+  
   const [selectedOptionId, setSelectedOptionId] = useState(null);
 
   useEffect(() => {
@@ -20,6 +21,9 @@ function OptionInputsText({
         })
       );
       setOptions(updatedOptions);
+      setSelectedOptionId(questionsArray.correctAnswer);
+    } else {
+      setSelectedOptionId(null);
     }
     // eslint-disable-next-line
   }, [editableQuiz]);
@@ -105,11 +109,9 @@ function OptionInputsText({
     );
     setSelectedOptionId(id);
 
-    const questionIndex = id - 1;
-
     onQuestionChange({
       ...questionsArray,
-      correctAnswer: questionIndex,
+      correctAnswer: id,
     });
   };
 
@@ -120,17 +122,39 @@ function OptionInputsText({
           {quizType === "QnA" && editableQuiz === null && (
             <input
               type="radio"
-              name="OptionsGroup"
+              name={questionsArray.question}
               id={`option${option.id}`}
               onChange={() => handleRadioChange(option.id)}
             />
           )}
+
+          {editableQuiz && editableQuiz.type === "QnA" && (
+            <input
+              type="radio"
+              name={questionsArray.question}
+              id={`option${option.id}`}
+              onChange={() => handleRadioChange(option.id)}
+              checked={Number(option.id) === Number(selectedOptionId)}
+            />
+          )}
+
           <label htmlFor={`option${option.id}`}>
             <input
               style={{
                 backgroundColor:
-                  option.id === selectedOptionId ? "#60B84B" : "white",
-                color: option.id === selectedOptionId ? "white" : "black",
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "#60B84B"
+                    : "white",
+                color:
+                  option.id === selectedOptionId ||
+                  (editableQuiz &&
+                    editableQuiz.type === "QnA" &&
+                    Number(option.id) === Number(selectedOptionId))
+                    ? "white"
+                    : "black",
               }}
               className={styles.text1}
               type="text"

@@ -31,9 +31,11 @@ function DashboardPage() {
 
   const [error, setError] = useState("");
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   useEffect(() => {
     axios
-      .get(`https://quizzieappbackend.onrender.com/${userId}`, { headers })
+      .get(`${baseUrl}getAllQuizzes/${userId}`, { headers })
       .then((response) => {
         setError("");
         const {

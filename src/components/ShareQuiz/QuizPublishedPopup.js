@@ -12,10 +12,10 @@ function QuizPublishedPopup({
     setIsQuizPublishedPopupOpen(false);
   };
 
-  const message = `Your link is here : https://quizzieappbackend.onrender.com/${newlyCreatedQuizId}`;
+  const message = `Your link is here : http://localhost:3000/quiz/${newlyCreatedQuizId}`;
 
   const handleShareBtn = () => {
-    const link = `https://quizzieappbackend.onrender.com/${newlyCreatedQuizId}`;
+    const link = `http://localhost:3000/quiz/${newlyCreatedQuizId}`;
     navigator.clipboard.writeText(link).then(() => {
       toast.success("Link copied to Clipboard");
     });

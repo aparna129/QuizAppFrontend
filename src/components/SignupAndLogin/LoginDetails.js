@@ -22,10 +22,12 @@ function LoginDetails() {
 
   const [isLoginClicked, setIsLoginClicked] = useState(false);
 
+  const baseUrl = localStorage.getItem("baseUrl");
+
   const handleLoginBtn = () => {
     setIsLoginClicked(true);
     axios
-      .post("https://quizzieappbackend.onrender.com/login", loginData)
+      .post(`${baseUrl}login`, loginData)
       .then((response) => {
         const { message } = response.data;
         toast.success(message);
