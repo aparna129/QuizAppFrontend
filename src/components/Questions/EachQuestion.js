@@ -134,7 +134,7 @@ function EachQuestion({
             id={`TextAndImageUrl-${questionNumber}`}
             checked={selectedOptionType === "TextAndImageUrl"}
           />
-          <label htmlFor={`TextAndImageUrl-${questionNumber}`}>
+          <label htmlFor={`TextAndImageUrl-${questionNumber}`}> 
              Text & Image URL
           </label>
         </div>
