@@ -31,10 +31,11 @@ function LiveQuizInterface() {
       .catch((error) => {
         console.log(error);
       });
+      // eslint-disable-next-line
   }, [quizId]);
 
   //Impressions Updation
-  
+
   useEffect(() => {
     setImpressions((prevImpressions) => prevImpressions + 1);
     axios
