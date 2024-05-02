@@ -14,6 +14,7 @@ import QuizPublishedPopup from "../ShareQuiz/QuizPublishedPopup";
 import EditQuizPopup from "../CreateAndEditQuiz/EditQuizPopup";
 import styles1 from "../CommonStyles.module.css";
 import styles from "./Analytics.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function AnalyticsPage() {
   const navigate = useNavigate();
@@ -28,10 +29,13 @@ function AnalyticsPage() {
   const handleShareBtn = (quizId) => {
     const link = `https://quizzie-universe-app.netlify.app/quiz/${quizId}`;
 
+    // Copying the link to clipboard , this is object provided by browser
     navigator.clipboard.writeText(link).then(() => {
       toast.success("Link copied to Clipboard");
     });
   };
+
+  const [loading, setLoading] = useState(true);
 
   const [isDeleteBtnClicked, setIsDeleteBtnClicked] = useState(false);
 
@@ -58,6 +62,8 @@ function AnalyticsPage() {
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  // Getting all Quizzes which are sorted according to date
+
   useEffect(() => {
     axios
       .get(`${baseUrl}getAllQuizzes/${userId}`, { headers })
@@ -70,6 +76,7 @@ function AnalyticsPage() {
             "You haven't created any Quiz, Click on Create Quiz to create your first Quiz"
           );
         }
+        setLoading(false);
       })
       .catch((error) => {
         if (
@@ -82,6 +89,7 @@ function AnalyticsPage() {
           setError("An error occurred fetching quizzes");
         }
         console.log(error);
+        setLoading(false);
       });
     // eslint-disable-next-line
   }, [quizzes]);
@@ -190,6 +198,8 @@ function AnalyticsPage() {
         </div>
       </div>
 
+      {/* All popups section */}
+
       {isDeleteBtnClicked && (
         <div className={styles1.popup}>
           <DeleteQuizPopup quizId={quizId} onClose={handleCloseDeletePopup} />
@@ -220,6 +230,7 @@ function AnalyticsPage() {
           />
         </div>
       )}
+
       {isQuizPublishedPopupOpen && (
         <div className={styles1.popup}>
           <QuizPublishedPopup
@@ -228,6 +239,7 @@ function AnalyticsPage() {
           />
         </div>
       )}
+
       {isEditQuizPopupOpen && (
         <div className={styles1.popup}>
           <EditQuizPopup
@@ -237,6 +249,13 @@ function AnalyticsPage() {
             setIsAddQuestionsPopupOpen={setIsAddQuestionsPopupOpen}
             setEditableQuiz={setEditableQuiz}
           />
+        </div>
+      )}
+
+      {loading && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
         </div>
       )}
     </div>

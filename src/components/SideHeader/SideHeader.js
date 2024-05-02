@@ -11,6 +11,8 @@ function SideHeader({ option, setIsCreateQuizPopupOpen }) {
     setIsCreateQuizPopupOpen(true);
   };
 
+  // Using to navigate to dashboard or analytics
+
   const navigate = useNavigate();
 
   const handleLogout = () => {

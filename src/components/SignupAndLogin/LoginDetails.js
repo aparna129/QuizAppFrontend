@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles1 from "../CommonStyles.module.css";
 import styles from "./SignupLogin.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function LoginDetails() {
   const [loginData, setLoginData] = useState({
@@ -22,10 +23,17 @@ function LoginDetails() {
 
   const [isLoginClicked, setIsLoginClicked] = useState(false);
 
+  const [loginBtnClicked,setLoginBtnClicked]=useState(false);
+
   const baseUrl = localStorage.getItem("baseUrl");
+
+  const [loading, setLoading] = useState(true);
+
+  // Login Api
 
   const handleLoginBtn = () => {
     setIsLoginClicked(true);
+    setLoginBtnClicked(true);
     axios
       .post(`${baseUrl}login`, loginData)
       .then((response) => {
@@ -41,6 +49,7 @@ function LoginDetails() {
           password: "",
         });
         setIsLoginClicked(false);
+        setLoading(false);
         navigate("/dashboard");
       })
       .catch((error) => {
@@ -54,6 +63,7 @@ function LoginDetails() {
           setError("An error occurred while log in");
         }
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -124,6 +134,13 @@ function LoginDetails() {
           <></>
         )}
       </div>
+
+      {loading && loginBtnClicked && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
+        </div>
+      )}
     </div>
   );
 }

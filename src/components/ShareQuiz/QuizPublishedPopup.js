@@ -14,6 +14,8 @@ function QuizPublishedPopup({
 
   const message = `Your link is here :https://quizzie-universe-app.netlify.app/quiz/${newlyCreatedQuizId}`;
 
+  // Copying the link when share btn is clicked 
+  
   const handleShareBtn = () => {
     const link = `https://quizzie-universe-app.netlify.app/quiz/${newlyCreatedQuizId}`;
     navigator.clipboard.writeText(link).then(() => {

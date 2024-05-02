@@ -4,6 +4,8 @@ import styles from "./Timer.module.css";
 function Timer({ onTimerChange }) {
   const [selectedTimer, setSelectedTimer] = useState("");
 
+  // Handling timer when any of the button is clicked 
+
   const handleTimerOff = () => {
     setSelectedTimer(null);
     onTimerChange("OFF");

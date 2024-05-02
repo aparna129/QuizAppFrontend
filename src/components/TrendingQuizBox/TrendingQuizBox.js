@@ -17,6 +17,8 @@ function TrendingQuizBox({ quizName, impressions, createdAt }) {
         </p>
       </div>
 
+      {/* Created At Part */}
+
       <p className={styles.createdAt}>Created on : {createdAt}</p>
     </div>
   );

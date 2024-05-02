@@ -18,6 +18,7 @@ function EachQuestion({
 
   const [questionValue, setQuestionValue] = useState("");
 
+  // If edit btn is clicked then we will set question value and its option Type
   useEffect(() => {
     if (editableQuiz) {
       setQuestionValue(questionsArray.question || "");
@@ -25,16 +26,17 @@ function EachQuestion({
     }
   }, [editableQuiz, questionsArray]);
 
+  // Updating the question value 
   const handleQuestionChange = (e) => {
     const updatedQuestion = {
       ...questionsArray,
       question: e.target.value,
     };
-
     onQuestionChange(updatedQuestion);
     setQuestionValue(e.target.value);
   };
 
+  // Updating the option Type of current question
   const handleSelectedOption = (value) => {
     const updatedQuestion = {
       ...questionsArray,
@@ -45,6 +47,7 @@ function EachQuestion({
     setSelectedOptionType(value);
   };
 
+  // Render option Inputs based on selected Option Type
   const renderOptionInputs = () => {
     switch (selectedOptionType) {
       case "Text":

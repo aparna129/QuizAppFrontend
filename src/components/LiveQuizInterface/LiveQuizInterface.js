@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CompletedQuiz from "./CompletedQuiz";
 import styles from "./LiveQuizInterface.module.css";
+import styles1 from "../CommonStyles.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function LiveQuizInterface() {
   const { quizId } = useParams();
@@ -20,6 +22,8 @@ function LiveQuizInterface() {
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get(`${baseUrl}getQuizById/${quizId}`)
@@ -27,15 +31,16 @@ function LiveQuizInterface() {
         const { quiz } = response.data;
         setQuiz(quiz);
         setImpressions(quiz.impressions);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
     // eslint-disable-next-line
   }, [quizId]);
 
   //Impressions Updation
-
   useEffect(() => {
     setImpressions((prevImpressions) => prevImpressions + 1);
     axios
@@ -52,6 +57,7 @@ function LiveQuizInterface() {
   }, []);
 
   const handleNextOrSubmitQna = () => {
+    // Check if the quiz is already completed, if so, return
     if (quizCompleted) {
       return;
     }
@@ -59,11 +65,15 @@ function LiveQuizInterface() {
     let peopleAnsweredCorrectly = 0;
     let peopleAnsweredIncorrectly = 0;
 
+    // If there are more questions to go through
     if (currentQuestionIndex < quiz.questionsArray.length - 1) {
       const currentQuestion = quiz.questionsArray[currentQuestionIndex];
 
+      // If an option is selected for the current question
       if (selectedOptionIndex !== null) {
+        // Check if the selected option is correct
         if (currentQuestion.correctAnswer === selectedOptionIndex + 1) {
+          // If the timer is not active, increment the correct answer count
           if (!timerActive) {
             setCorrectAnswersCount((prevCount) => prevCount + 1);
             peopleAnsweredCorrectly = 1;
@@ -71,17 +81,23 @@ function LiveQuizInterface() {
             peopleAnsweredIncorrectly = 1;
           }
         } else {
+          // If the selected option is incorrect, mark as incorrectly answered
           peopleAnsweredIncorrectly = 1;
         }
       } else {
+        // If no option is selected, mark as incorrectly answered
         peopleAnsweredIncorrectly = 1;
       }
 
+      // Move to the next question
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
+      // If it's the last question
       if (selectedOptionIndex !== null) {
         const currentQuestion = quiz.questionsArray[currentQuestionIndex];
+        // Check if the selected option is correct
         if (currentQuestion.correctAnswer === selectedOptionIndex + 1) {
+          // If the timer is not active, increment the correct answer count
           if (!timerActive) {
             setCorrectAnswersCount((prevCount) => prevCount + 1);
             peopleAnsweredCorrectly = 1;
@@ -89,16 +105,22 @@ function LiveQuizInterface() {
             peopleAnsweredIncorrectly = 1;
           }
         } else {
+          // If the selected option is incorrect, mark as incorrectly answered
           peopleAnsweredIncorrectly = 1;
         }
       } else {
+        // If no option is selected, mark as incorrectly answered
         peopleAnsweredIncorrectly = 1;
       }
 
+      // Set quiz as completed
       setQuizCompleted(true);
     }
+
+    // Reset selected option index
     setSelectedOptionIndex(null);
 
+    // Send axios patch request to update question data
     axios
       .patch(
         `${baseUrl}questionsUpdation/${quiz._id}/${quiz.questionsArray[currentQuestionIndex]._id}`,
@@ -168,28 +190,40 @@ function LiveQuizInterface() {
         }
       });
     setSelectedOptionIndex(null);
+    // If its last question
     if (currentQuestionIndex === quiz.questionsArray.length - 1) {
       setQuizCompleted(true);
     }
   };
 
   useEffect(() => {
+    // Set up a timer interval
+    // setInterval: This function sets up a recurring timer interval. It takes a
+    // callback function and a duration in milliseconds.
     const timerInterval = setInterval(() => {
+      // Update the timer state
       setTimer((prevTimer) => {
         if (prevTimer > 0) {
+          // If the timer is greater than 0, decrement it by 1
           return prevTimer - 1;
         } else {
+          // If the timer reaches 0, set the timer active state to true
           setTimerActive(true);
+          // Call handleNextOrSubmitQna function to move to the next question or submit the quiz
           handleNextOrSubmitQna();
           return 0;
         }
       });
-    }, 1000);
+    }, 1000); // Update the timer every second
 
+    // Clean up function
     return () => {
+      // Clear the timer interval
       clearInterval(timerInterval);
+      // Set the timer active state to false
       setTimerActive(false);
     };
+    // This ensures that the effect runs when any of these values change
     // eslint-disable-next-line
   }, [timer, currentQuestionIndex, quizCompleted]);
 
@@ -210,14 +244,6 @@ function LiveQuizInterface() {
   const handleOptionSelect = (index) => {
     setSelectedOptionIndex(index);
   };
-
-  if (!quiz) {
-    return (
-      <div style={{ textAlign: "center" }}>
-        <h1>Please Wait to load the Quiz !</h1>
-      </div>
-    );
-  }
 
   if (quizCompleted) {
     return (
@@ -325,6 +351,13 @@ function LiveQuizInterface() {
           </div>
         )}
       </div>
+
+      {loading && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
+        </div>
+      )}
     </div>
   );
 }

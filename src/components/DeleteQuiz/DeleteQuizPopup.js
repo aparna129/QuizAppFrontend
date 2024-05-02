@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./DeleteQuizPopup.module.css";
 import styles1 from "../CommonStyles.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function DeleteQuizPopup({ quizId, onClose }) {
   const token = localStorage.getItem("jwtToken");
@@ -18,7 +19,14 @@ function DeleteQuizPopup({ quizId, onClose }) {
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  // Calling the Api to delete quiz
+
+  const [loading, setLoading] = useState(true);
+
+  const [confirmBtnClicked, setConfirmBtnClicked] = useState(false);
+
   const handleDeleteQuiz = () => {
+    setConfirmBtnClicked(true);
     axios
       .delete(`${baseUrl}quizDeletion/${userId}/${quizId}`, {
         headers,
@@ -26,6 +34,7 @@ function DeleteQuizPopup({ quizId, onClose }) {
       .then((response) => {
         onClose();
         toast.success("Quiz Deleted Successfully");
+        setLoading(false);
       })
       .catch((error) => {
         if (
@@ -38,6 +47,7 @@ function DeleteQuizPopup({ quizId, onClose }) {
           setError("An error occurred while deleting quiz");
         }
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -61,6 +71,13 @@ function DeleteQuizPopup({ quizId, onClose }) {
         </button>
       </div>
       {error && <p className={styles1.error}>{error}</p>}
+
+      {loading && confirmBtnClicked && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
+        </div>
+      )}
     </div>
   );
 }

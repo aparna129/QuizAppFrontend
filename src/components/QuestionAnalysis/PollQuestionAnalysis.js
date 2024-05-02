@@ -9,6 +9,7 @@ import AddQuestionsPopup from "../Questions/AddQuestionsPopup";
 import QuizPublishedPopup from "../ShareQuiz/QuizPublishedPopup";
 import styles1 from "../CommonStyles.module.css";
 import styles from "./PollQuestionAnalysis.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function PollQuestionAnalysis() {
   const { quizId } = useParams();
@@ -26,15 +27,19 @@ function PollQuestionAnalysis() {
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get(`${baseUrl}getQuizById/${quizId}`)
       .then((response) => {
         const { quiz } = response.data;
         setQuiz(quiz);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
     // eslint-disable-next-line
   }, [quizId]);
@@ -89,6 +94,9 @@ function PollQuestionAnalysis() {
           </div>
         </div>
       </div>
+
+      {/* All popups section */}
+
       {isCreateQuizPopupOpen && (
         <div className={styles1.popup}>
           <CreateQuizPopup
@@ -118,6 +126,13 @@ function PollQuestionAnalysis() {
             setIsQuizPublishedPopupOpen={setIsQuizPublishedPopupOpen}
             newlyCreatedQuizId={newlyCreatedQuizId}
           />
+        </div>
+      )}
+
+{loading && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
         </div>
       )}
     </div>

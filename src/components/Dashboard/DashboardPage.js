@@ -7,6 +7,7 @@ import AddQuestionsPopup from "../Questions/AddQuestionsPopup";
 import QuizPublishedPopup from "../ShareQuiz/QuizPublishedPopup";
 import styles1 from "../CommonStyles.module.css";
 import styles2 from "./Dashboard.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function DashboardPage() {
   const [isCreateQuizPopupOpen, setIsCreateQuizPopupOpen] = useState(false);
@@ -33,6 +34,10 @@ function DashboardPage() {
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  // Getting all Quizzes sorted according to highest impressions
+
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get(`${baseUrl}getAllQuizzes/${userId}`, { headers })
@@ -54,6 +59,7 @@ function DashboardPage() {
         setTotalQuestions(totalQuestions);
         setTotalImpressions(totalImpressions);
         setQuizzes(impressionsSortedQuizzes);
+        setLoading(false);
       })
       .catch((error) => {
         if (
@@ -66,6 +72,7 @@ function DashboardPage() {
           setError("An error occurred fetching quizzes");
         }
         console.log(error);
+        setLoading(false);
       });
     // eslint-disable-next-line
   }, [quizzes]);
@@ -144,6 +151,9 @@ function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* All popups section */}
+
       {isCreateQuizPopupOpen && (
         <div className={styles1.popup}>
           <CreateQuizPopup
@@ -154,6 +164,7 @@ function DashboardPage() {
           />
         </div>
       )}
+
       {isAddQuestionsPopupOpen && (
         <div className={styles1.popup}>
           <AddQuestionsPopup
@@ -167,12 +178,20 @@ function DashboardPage() {
           />
         </div>
       )}
+
       {isQuizPublishedPopupOpen && (
         <div className={styles1.popup}>
           <QuizPublishedPopup
             setIsQuizPublishedPopupOpen={setIsQuizPublishedPopupOpen}
             newlyCreatedQuizId={newlyCreatedQuizId}
           />
+        </div>
+      )}
+
+      {loading && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
         </div>
       )}
     </div>

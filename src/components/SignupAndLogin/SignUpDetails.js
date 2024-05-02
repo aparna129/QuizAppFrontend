@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles1 from "../CommonStyles.module.css";
 import styles from "./SignupLogin.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function SignUpDetails({ onSignUpSuccess }) {
   const [signUpData, setSignUpData] = useState({
@@ -21,12 +22,20 @@ function SignUpDetails({ onSignUpSuccess }) {
   };
 
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
+
+  const [signupBtnClicked,setSignUpBtnClicked]=useState(false);
+
   const [error, setError] = useState("");
 
   const baseUrl = localStorage.getItem("baseUrl");
 
+  const [loading, setLoading] = useState(true);
+
+  // SignUp Api 
+
   const handleSignUp = () => {
     setIsSignUpClicked(true);
+    setSignUpBtnClicked(true);
     axios
       .post(`${baseUrl}signup`, signUpData)
       .then((response) => {
@@ -40,6 +49,7 @@ function SignUpDetails({ onSignUpSuccess }) {
         });
         toast.success(message);
         setIsSignUpClicked(false);
+        setLoading(false);
         onSignUpSuccess();
       })
       .catch((error) => {
@@ -53,6 +63,7 @@ function SignUpDetails({ onSignUpSuccess }) {
           setError("An error occurred while creating the user");
         }
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -167,6 +178,13 @@ function SignUpDetails({ onSignUpSuccess }) {
           <></>
         )}
       </div>
+
+      {loading && signupBtnClicked && (
+        <div className={styles1.loaderContainer}>
+          <div className={styles1.loaderBackground} />
+          <ClipLoader color={"black"} loading={loading} />
+        </div>
+      )}
     </div>
   );
 }

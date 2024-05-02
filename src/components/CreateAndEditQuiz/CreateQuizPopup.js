@@ -32,6 +32,7 @@ function CreateQuizPopup({
   const [quizName, setquizname] = useState("");
 
   const handleContinueClicked = () => {
+    // trim fn removes white spaces from both the ends 
     if (quizName.trim() === "") {
       setError("Quiz name cannot be empty");
     } else if (!isQnAClicked && !isPollTypeClicked) {
